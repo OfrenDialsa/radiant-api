@@ -6,4 +6,10 @@ Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
 
-require __DIR__.'/auth.php';
+function loadModuleRoutes($module)
+{
+    $path = base_path("app/Modules/{$module}/routes.php");
+    if (file_exists($path)) require $path;
+}
+
+loadModuleRoutes('Auth');
