@@ -3,7 +3,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -68,7 +71,14 @@
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
-        ]
+        ],
+        "docker:build": "docker-compose build",
+        "docker:up": "docker-compose up -d",
+        "docker:down": "docker-compose down -v",
+        "docker:logs": "docker-compose logs -f",
+        "docker:exec": "docker-compose exec app bash",
+        "docker:migrate": "docker-compose exec app php artisan migrate",
+        "docker:seed": "docker-compose exec app php artisan db:seed"
     },
     "extra": {
         "laravel": {
